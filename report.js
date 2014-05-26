@@ -2,8 +2,14 @@ var ProgressBar = require('progress');
 var Table = require('cli-table');
 var countWords = require('./count-words');
 
-var categories = require('./bernoulli.json');
-var classify = require('./classify-bernoulli')(categories);
+var classifier = process.argv[2];
+if (classifier !== 'bernoulli' && classifier !== 'multinomial') {
+  console.error('Argument classifier required. May be one of bernoulli or multinomial.');
+  process.exit();
+}
+
+var categories = require('./' + classifier + '.json');
+var classify = require('./classify-' + classifier)(categories);
 
 var matrix = {};
 var bar = new ProgressBar('[:bar]', {total: 7532, width: 50});

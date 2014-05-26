@@ -3,4 +3,5 @@ node_modules
 20news-bydate-*
 test.tar
 train.tar
+multinomial.json
 bernoulli.json

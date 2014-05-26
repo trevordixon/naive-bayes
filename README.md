@@ -1,3 +1,5 @@
     $ npm install
     $ node train-bernoulli
-    $ node report
+    $ node train-multinomial
+    $ node report bernoulli
+    $ node report multinomial
