@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+20news-bydate-*
+test.tar
+train.tar
+bernoulli.json
