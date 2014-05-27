@@ -5,3 +5,4 @@ test.tar
 train.tar
 multinomial.json
 bernoulli.json
+baseline.json

@@ -3,8 +3,8 @@ var Table = require('cli-table');
 var countWords = require('./count-words');
 
 var classifier = process.argv[2];
-if (classifier !== 'bernoulli' && classifier !== 'multinomial') {
-  console.error('Argument classifier required. May be one of bernoulli or multinomial.');
+if (classifier !== 'bernoulli' && classifier !== 'multinomial' && classifier !== 'baseline') {
+  console.error('Argument classifier required. May be one of bernoulli, multinomial, or baseline.');
   process.exit();
 }
 
