@@ -12,6 +12,7 @@ var categories = require('./' + classifier + '.json');
 var classify = require('./classify-' + classifier)(categories);
 
 var matrix = {};
+var numCorrect = 0, total = 0;
 var bar = new ProgressBar('[:bar]', {total: 7532, width: 50});
 countWords('test')
   .on('document', function(d) {
@@ -21,6 +22,9 @@ countWords('test')
     matrix[actualCategory] = matrix[actualCategory] || {};
     matrix[actualCategory][reportedCategory] = matrix[actualCategory][reportedCategory] || 0;
     ++matrix[actualCategory][reportedCategory];
+
+    ++total;
+    if (actualCategory == reportedCategory) ++numCorrect;
 
     bar.tick();
   })
@@ -45,4 +49,5 @@ countWords('test')
     }
 
     console.log(table.toString());
+    console.log(Math.round(numCorrect*100/total) + '% correct');
   });
